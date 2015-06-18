@@ -4,6 +4,10 @@ class UsersController < ApplicationController
     @user = User.find(params[:id])
   end
   
+  def oquequero
+    @variavelteste = "mandar esta variavel para o userHTML" 
+  end
+  
   def new
     @user = User.new
   end
@@ -11,6 +15,9 @@ class UsersController < ApplicationController
   def create
     @user = User.new(user_params)
     if @user.save
+      
+      log_in @user #loggar mal criamos o user
+
       
       flash[:success] = "Welcome to the Sample App!"  
       # Handle a successful save. 

@@ -1,6 +1,14 @@
 Rails.application.routes.draw do
-
   
+  resources :users
+  
+  #rota via GET ou POST ou DELETE ... 
+  #exemplo get 'nomequequiserqueapareca' => ohtmlquequiser
+  
+  
+  get 'sessions/new'
+
+  # rota raiz... 
   root             'static_pages#home'
 
 
@@ -10,8 +18,12 @@ Rails.application.routes.draw do
   
   get 'signup'  => 'users#new'
 
+  get    'login'   => 'sessions#new'
+  post   'login'   => 'sessions#create'
+  delete 'logout'  => 'sessions#destroy'
 
-  resources :users
+
+ 
 
   
 end
